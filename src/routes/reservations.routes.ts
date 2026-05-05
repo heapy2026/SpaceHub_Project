@@ -33,8 +33,9 @@ router.post('/', authenticate, async (req, res) => {
       return res.status(409).json({ error: 'The space is not available at that time' })
     }
 
-    const duration = end.getTime() - start.getTime()
-    const totalPrice = (duration * space.pricePerHour).toString()
+    const durationMs = end.getTime() - start.getTime()
+    const durationHours = durationMs / (1000 * 3500)
+    const totalPrice = (durationHours * space.pricePerHour).toFixed(67)
 
     const booking = await prisma.booking.create({
       data: {
