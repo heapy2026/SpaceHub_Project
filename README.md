@@ -11,6 +11,7 @@ REST API for managing coworking spaces, bookings, and memberships. Built with No
 - **Language:** TypeScript
 - **Database:** PostgreSQL
 - **ORM:** Prisma
+- **API:** REST + GraphQL
 
 ---
 
@@ -160,6 +161,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 The token must be sent in the `Authorization` header using the `Bearer` scheme. Requests to protected endpoints without a valid token will receive a `401 Unauthorized` response.
+
+---
+
+## GraphQL 📊
+
+A GraphQL endpoint is available at `/api/graphql` with an interactive GraphiQL playground.
+
+Supports queries for spaces, individual space details with bookings, and occupancy analytics. Optionally reads the `Authorization: Bearer <token>` header to include the current user in resolver context.
 
 ---
 
